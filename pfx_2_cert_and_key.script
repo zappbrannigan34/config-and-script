@@ -1,0 +1,4 @@
+#!/bin/bash
+openssl pkcs12 -in $1 -clcerts -nokeys -out $1.crt
+openssl pkcs12 -in $1 -nocerts -nodes -out $1.rsa.key
+openssl s_server -www -accept 443 -cert $1.crt -key $1.rsa.key
